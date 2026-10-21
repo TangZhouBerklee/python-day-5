@@ -81,4 +81,42 @@ def log_out():
     Return: bool (True if the user wants to leave, False to go back to the menu).
     """
     pass
+
+def run_unit_tests():
+    test_bank = {
+        "Priya": {"balance": 100, "pin": "4821"},
+        "Amira": {"balance": 0, "pin": "0000"},
+    }
+
+    print("show_welcome")
+    show_welcome()# Expecting the welcome message
+ 
+    print("login")
+    # Type: name "Bob", PIN "1111"  -> Expecting an error, then it asks again
+    # Then type: name "Priya", PIN "4821"
+    print(login(test_bank))  # Expecting Priya
+ 
+    print("show_menu")
+    print(show_menu())  # Expecting the menu
+
+    print("check_balance")
+    check_balance("Priya", test_bank)  # Expecting: balance is $100
+ 
+    print("deposit")
+    # Type: 50
+    deposit("Priya", test_bank)
+    print(test_bank["Priya"]["balance"])  # Expecting 150
+ 
+    print("withdraw")
+    # Type: 500  -> Expecting an error (more than the balance), then it asks again
+    # Then type: 30
+    withdraw("Priya", test_bank)
+    print(test_bank["Priya"]["balance"])  # Expecting 120
+ 
+    print("log_out")
+    # Type: yes
+    print(log_out())  # Expecting a goodbye message, then True
+    # Type: no
+    print(log_out())  # Expecting False
+ 
  
