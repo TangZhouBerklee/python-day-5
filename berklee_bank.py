@@ -14,7 +14,7 @@ def show_welcome():
     Side Effects: prints to the screen.
     Return: none.
     """
-    pass
+    print("Welcome to Berklee Bank")
  
  
 def login(bank_dict):
@@ -25,7 +25,13 @@ def login(bank_dict):
     Side Effects: reads user input; prints an error message when the name or PIN is wrong.
     Return: str (the name of the user who logged in).
     """
-    pass
+    while True:
+        name = input("Name: ")
+        pin = input("PIN: ")
+        if name in bank_dict and bank_dict[name]["pin"] == pin:
+            print("Login successful. Hello, " + name + "!")
+            return name
+        print("Wrong name or PIN. Please try again.")
  
  
 def show_menu():
@@ -36,7 +42,8 @@ def show_menu():
     Side Effects: prints the menu; reads user input.
     Return: str (the user's choice).
     """
-    pass
+    while check_balance:
+        
  
  
 def check_balance(name, bank_dict):
@@ -94,9 +101,12 @@ def run_unit_tests():
     print("login")
     # Type: name "Bob", PIN "1111"  -> Expecting an error, then it asks again
     # Then type: name "Priya", PIN "4821"
+    if not 
     print(login(test_bank))  # Expecting Priya
  
     print("show_menu")
+    if check_balance:
+        
     print(show_menu())  # Expecting the menu
 
     print("check_balance")
